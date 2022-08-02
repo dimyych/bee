@@ -10,13 +10,13 @@ function App() {
   const [apiaries, setApiaries]= useState([]);
 
   async function fetchApiaries() {
-    fetch("http://bnbee-lviv.loca.lt/apiaries")
+    fetch("http://bnbee-lviv.loca.lt/apiaries",  {'Bypass-Tunnell-Reminder': true})
       .then((response) => response.json())
       .then((response) => setApiaries(response));
   }
 
   async function fetchHives() {
-    fetch(`http://bnbee-lviv.loca.lt/statistic/latest/${apiary ? apiary : 1}`)
+    fetch(`http://bnbee-lviv.loca.lt/statistic/latest/${apiary ? apiary : 1}`, {'Bypass-Tunnell-Reminder': true})
       .then((response) => response.json())
       .then((response) => setHives(response));
   }
